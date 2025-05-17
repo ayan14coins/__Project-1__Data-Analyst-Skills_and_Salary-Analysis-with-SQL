@@ -1,0 +1,54 @@
+/* "Identify the most common skills associated with the highest-paying Data Analyst job postings."
+
+ This analysis focuses on uncovering the skills most frequently associated with top-paying Data Analyst roles. By selecting the 100 highest-paying job postings for Data Analysts (based on annualized salary), we analyze the skills linked to these positions. The result reveals the 10 most common skills among these high-salary jobs — offering insights into the competencies that tend to appear in well-compensated Data Analyst roles.
+
+-Filtered the job postings dataset to include only Data Analyst roles.
+-Calculated a unified salary field by converting hourly wages to annual salaries where needed.
+-Selected the top 100 jobs with the highest salaries.
+-Joined these jobs with the skills dataset to retrieve associated skills.
+-Grouped and counted the number of job postings each skill appeared in.
+-Ordered the skills by frequency and selected the top 10 most common skills.
+*/
+
+WITH job_skills AS(
+    SELECT
+        job_id,
+        job_title,
+        -- case
+        --     when salary_year_avg is not NULL then salary_year_avg
+        --     when salary_hour_avg is not NULL then salary_hour_avg*2040
+        -- end as salary,
+        COALESCE(salary_year_avg, salary_hour_avg*2040) AS salary,
+        name as company_name
+        -- job_location,
+        -- job_schedule_type
+    FROM
+        job_postings_fact
+    LEFT JOIN
+        company_dim on job_postings_fact.company_id = company_dim.company_id
+    WHERE
+        (salary_year_avg is NOT NULL OR salary_hour_avg is NOT NULL)
+        AND job_title_short = 'Data Analyst'
+        -- AND job_location = 'Anywhere'
+    ORDER BY
+        salary DESC
+    LIMIT
+        100
+)
+
+SELECT
+    -- job_skills.*,
+    skills_dim.skills,
+    count(*) as "job count"
+FROM
+    job_skills
+INNER JOIN
+    skills_job_dim on skills_job_dim.job_id = job_skills.job_id
+INNER JOIN
+    skills_dim on skills_job_dim.skill_id = skills_dim.skill_id
+GROUP BY
+    skills_dim.skills
+ORDER BY
+    "job count" DESC
+LIMIT
+    10
