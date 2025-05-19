@@ -108,7 +108,7 @@ ORDER BY
 LIMIT
     10;
 ```
-![Most In-Demand Skills for High-Paying Data Analyst Roles](Picture_assets\q2.jpg)
+![Most In-Demand Skills for High-Paying Data Analyst Roles](Picture_assets/q2.jpg)
 *This chart highlights the skills most frequently associated with the top 100 highest-paying Data Analyst roles, offering insight into the technical competencies valued in premium positions.*
 ### 3. Most Frequently Required Skills for Data Analyst Roles
 
@@ -145,7 +145,7 @@ ORDER BY
     "jobs in demand" DESC
 LIMIT 5;
 ```
-![Identify the top most frequently required skills for Data Analyst job roles.](Picture_assets\q3.jpg)
+![Identify the top most frequently required skills for Data Analyst job roles.](Picture_assets/q3.jpg)
 *This chart shows the number of job postings that mention each skill among the top 100 highest-paying Data Analyst roles, highlighting the most in-demand competencies in premium positions.*
 ### 4. Highest-Paying Skills Across Job Postings
 
@@ -253,7 +253,7 @@ ORDER BY
 LIMIT
     10;
 ```
-![Optimal In-Demand Skills Based on Demand and Salary](Picture_assets\q5.jpg)
+![Optimal In-Demand Skills Based on Demand and Salary](Picture_assets/q5.jpg)
 *This chart presents a dual view of the job market demand (number of job postings) and earning potential (average salary) for key Data Analyst skills. By applying a combined score of **average salary × log(job demand)**, it highlights the most strategically valuable skills for both job seekers and hiring managers.*
 
 ---
