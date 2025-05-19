@@ -108,6 +108,8 @@ ORDER BY
 LIMIT
     10;
 ```
+![Most In-Demand Skills for High-Paying Data Analyst Roles](Picture_assets\q2.jpg)
+*This chart highlights the skills most frequently associated with the top 100 highest-paying Data Analyst roles, offering insight into the technical competencies valued in premium positions.*
 ### 3. Most Frequently Required Skills for Data Analyst Roles
 
 **Problem Statement:**  
@@ -143,6 +145,8 @@ ORDER BY
     "jobs in demand" DESC
 LIMIT 5;
 ```
+![Identify the top most frequently required skills for Data Analyst job roles.](Picture_assets\q3.jpg)
+*This chart shows the number of job postings that mention each skill among the top 100 highest-paying Data Analyst roles, highlighting the most in-demand competencies in premium positions.*
 ### 4. Highest-Paying Skills Across Job Postings
 
 **Problem Statement:**  
@@ -249,3 +253,42 @@ ORDER BY
 LIMIT
     10;
 ```
+![Optimal In-Demand Skills Based on Demand and Salary](Picture_assets\q5.jpg)
+*This chart presents a dual view of the job market demand (number of job postings) and earning potential (average salary) for key Data Analyst skills. By applying a combined score of **average salary × log(job demand)**, it highlights the most strategically valuable skills for both job seekers and hiring managers.*
+
+---
+
+## 📘 What I Learned ?
+
+Through this project, I gained practical experience in the following areas:
+
+- **SQL Mastery:**
+Improved my ability to write advanced SQL queries involving CTEs, joins, aggregations, filters, and mathematical functions for data analysis.
+
+- **Data Cleaning & Transformation:**
+Learned to handle missing salary data and standardize hourly and annual salaries for fair comparison across roles.
+
+- **Analytical Thinking:**
+Developed a strong understanding of how to extract actionable insights from raw datasets by asking the right questions and applying relevant metrics.
+
+- **Insight Prioritization:**
+Discovered that combining salary data with skill demand (using a logarithmic weighting function) provides a more balanced and practical view of job market value than looking at either metric alone.
+
+- **Data Storytelling:**
+Improved my ability to present findings through clear visualizations and structured explanations to communicate technical insights to a broader audience.
+
+---
+
+## ✅ Conclusion 
+
+This analysis provides a data-driven roadmap for aspiring and current Data Analysts to strategically upskill based on market realities. Here are the key takeaways:
+
+- SQL, Python, and Excel remain fundamental and frequently demanded in top-paying roles.
+
+- Power BI and Tableau are common in roles with both high salary and high demand, making them practical tools to master.
+
+- Skills like AWS and Snowflake, though lower in job frequency, command higher average salaries—suggesting niche but high-value specialization paths.
+
+- By applying a combined metric of salary and demand, we identified the most strategically optimal skills to focus on — balancing high earning potential with broad job availability.
+
+In an ever-evolving job market, these insights can guide personal development, hiring strategies, and educational content creation to better align with current industry needs.
