@@ -4,11 +4,11 @@ Identify the top most frequently required skills for Data Analyst job roles.
 In today's competitive job market, knowing the most sought-after skills can significantly improve job-seeking strategies and curriculum development. This query aims to uncover the top 5 most in-demand skills specifically for Data Analyst roles, based on job postings.
 The result helps job seekers, hiring managers, and educators understand which skills are most valued in the industry for Data Analyst positions.
 
--Filter job postings to include only those with the title Data Analyst.
--Join the job postings with the associated skills using skills_job_dim.
--Count how many job postings mention each skill.
--Order the results by the number of mentions in descending order.
--Limit the output to the top 5 most commonly required skills.
+- Filter job postings to include only those with the title Data Analyst.
+- Join the job postings with the associated skills using skills_job_dim.
+- Count how many job postings mention each skill.
+- Order the results by the number of mentions in descending order.
+- Limit the output to the top 5 most commonly required skills.
 
 */
 

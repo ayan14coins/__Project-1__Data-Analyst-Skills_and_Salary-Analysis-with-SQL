@@ -40,4 +40,4 @@ GROUP BY
 ORDER BY
     "average salary" DESC
 LIMIT
-    25
+    25;

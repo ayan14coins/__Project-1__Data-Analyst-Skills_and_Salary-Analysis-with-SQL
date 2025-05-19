@@ -52,4 +52,4 @@ FROM
 ORDER BY
     ROUND("average salary" * LOG("jobs in demand")::numeric, 0) DESC
 LIMIT
-    10
+    10;
