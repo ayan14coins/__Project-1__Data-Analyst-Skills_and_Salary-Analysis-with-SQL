@@ -18,14 +18,14 @@ WITH job_skills AS(
         --     when salary_year_avg is not NULL then salary_year_avg
         --     when salary_hour_avg is not NULL then salary_hour_avg*2040
         -- end as salary,
-        COALESCE(salary_year_avg, salary_hour_avg*2040) AS salary,
-        name as company_name
+        COALESCE(salary_year_avg, salary_hour_avg*2040) AS salary
+        -- name as company_name
         -- job_location,
         -- job_schedule_type
     FROM
         job_postings_fact
-    LEFT JOIN
-        company_dim on job_postings_fact.company_id = company_dim.company_id
+    -- LEFT JOIN
+    --     company_dim on job_postings_fact.company_id = company_dim.company_id
     WHERE
         (salary_year_avg is NOT NULL OR salary_hour_avg is NOT NULL)
         AND job_title_short = 'Data Analyst'

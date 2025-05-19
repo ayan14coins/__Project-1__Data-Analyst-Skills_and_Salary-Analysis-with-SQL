@@ -1,0 +1,43 @@
+/*
+Identify the highest-paying skills across all job postings with valid salary data.
+
+By ranking skills according to the average normalized salary of the jobs requiring them, this query pinpoints which competencies command the highest pay in the market. Job seekers can prioritize developing these skills for maximum earning potential, and educators can tailor curricula to high-value areas.
+
+- Filter job postings to include only those with a valid annual or hourly salary.
+- Normalize salaries by converting hourly wages to annual equivalents (assuming 2,040 work hours per year).
+- Pre-order the normalized jobs by salary in descending order to optimize for top salaries.
+- Join the filtered job list with `skills_job_dim` and `skills_dim` to associate each job with its skills.
+- For each skill, compute the average salary of its associated jobs.
+- Order skills by average salary in descending order.
+- Return the top 25 skills with the highest average salary.
+*/
+
+
+WITH job_fact_new AS(
+    SELECT
+        job_id,
+        job_title,
+        COALESCE(salary_year_avg, salary_hour_avg*2040) AS salary
+    FROM
+        job_postings_fact
+    WHERE
+        (salary_year_avg is NOT NULL OR salary_hour_avg is NOT NULL)
+        ORDER BY
+        salary DESC
+)
+
+SELECT
+    skills,
+    round(avg(salary)::numeric,0) as "average salary"
+FROM
+    job_fact_new
+INNER JOIN
+    skills_job_dim on skills_job_dim.job_id = job_fact_new.job_id
+INNER JOIN
+    skills_dim on skills_job_dim.skill_id = skills_dim.skill_id
+GROUP BY
+    skills
+ORDER BY
+    "average salary" DESC
+LIMIT
+    25

@@ -1,7 +1,22 @@
+/*
+Identify the top highest-paying Data Analyst job postings to help job seekers target high-value opportunities.
+
+Understanding which companies offer the highest compensation for Data Analyst roles can guide professionals in focusing their job search and negotiations. This analysis extracts the best-paying roles across available listings to highlight lucrative positions in the current job market.
+
+- Filter job postings to include only those with a valid annual or hourly salary.
+- Normalize salaries by converting hourly wages to annual equivalents using a standard full-time multiplier (2040 hours/year).
+- Limit results to jobs with the title "Data Analyst".
+- Join with the company_dim table to retrieve the corresponding company name.
+- Select relevant details: job title, normalized salary, company name, job location, and schedule type.
+- Order the results by salary in descending order.
+- Return the top 10 job postings offering the highest pay for Data Analyst roles.
+*/
+
+
 SELECT
     job_id,
     job_title,
-    salary_year_avg,
+    COALESCE(salary_year_avg, salary_hour_avg*2040) AS salary,
     name as company_name,
     job_location,
     job_schedule_type
@@ -10,10 +25,10 @@ FROM
 LEFT JOIN
     company_dim on job_postings_fact.company_id = company_dim.company_id
 WHERE
-    salary_year_avg is NOT NULL
+    (salary_year_avg is NOT NULL OR salary_hour_avg IS NOT NULL)
     -- AND job_location = 'Anywhere'
     AND job_title_short = 'Data Analyst'
 ORDER BY
-    salary_year_avg DESC
+    salary DESC
 LIMIT
     10

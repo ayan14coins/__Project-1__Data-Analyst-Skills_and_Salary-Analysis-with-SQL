@@ -1,0 +1,55 @@
+/*
+Determine the optimal in-demand skills by analyzing their job market demand alongside the associated average salaries to guide career and hiring decisions.
+
+In the evolving job landscape, job seekers and educators benefit from knowing not just which skills are frequently required but also which offer strong earning potential. This analysis ranks skills by optimizing both their demand (number of job postings) and their average salary, giving a holistic view of valuable skills in the job market.
+
+- Filter job postings to include only those with a valid annual or hourly salary.
+- Normalize salaries by converting hourly wages to annual equivalents.
+- Join job postings with associated skills via skills_job_dim and skills_dim.
+- For each skill, calculate:
+  -- The number of job postings requiring that skill.
+  -- The average salary for jobs that require that skill.
+- Sort the skills based on a combined score using:
+  -- average salary × log(number of jobs)
+    This scoring formula balances salary potential with market demand, ensuring that highly ranked skills are not just well-paid but also widely required. The logarithmic factor dampens the effect of extremely high job counts, allowing skills with fewer but better-paying jobs to remain competitive in the ranking.
+- Return the top 10 skills based on this sorting.
+*/
+
+
+WITH job_fact_new AS (
+    SELECT
+        job_id,
+        job_title,
+        COALESCE(salary_year_avg, salary_hour_avg * 2040) AS salary,
+        job_location,
+        job_schedule_type
+    FROM
+        job_postings_fact
+    WHERE
+        (salary_year_avg IS NOT NULL OR salary_hour_avg IS NOT NULL)
+        and job_title_short = 'Data Analyst'
+),
+average_count AS (
+    SELECT
+        skills,
+        COUNT(skills_job_dim.job_id) AS "jobs in demand",
+        ROUND(AVG(salary), 0) AS "average salary"
+    FROM
+        skills_job_dim
+    INNER JOIN
+        job_fact_new ON job_fact_new.job_id = skills_job_dim.job_id
+    INNER JOIN
+        skills_dim ON skills_dim.skill_id = skills_job_dim.skill_id
+    GROUP BY
+        skills
+)
+SELECT
+    skills,
+    "jobs in demand",
+    "average salary"
+FROM
+    average_count
+ORDER BY
+    ROUND("average salary" * LOG("jobs in demand")::numeric, 0) DESC
+LIMIT
+    10
