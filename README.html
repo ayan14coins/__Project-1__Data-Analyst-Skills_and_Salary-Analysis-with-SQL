@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%F0%9F%94%8D-data-analyst-skills--salary-analysis-with-sql">🔍 Data Analyst Skills &amp; Salary Analysis with SQL</h1>
+<h2 id="%F0%9F%93%98-introduction">📘 Introduction</h2>
+<p>This project explores the intersection of skill demand and salary across job postings, focusing on Data Analyst roles. By leveraging SQL to analyze structured job and skill data, we aim to uncover actionable insights for job seekers, educators, and recruiters.</p>
+<p>Key questions we address:</p>
+<ul>
+<li>Which Data Analyst roles offer the highest salaries ?</li>
+<li>What skills are most common in high-paying Data Analyst jobs ?</li>
+<li>Which skills are most in-demand for Data Analyst roles ?</li>
+<li>What are the skills that pay the highest  ?</li>
+<li>What are the best skills to learn based on a combination of demand and salary ?</li>
+</ul>
+<p>The findings help in prioritizing career development and tailoring educational programs to align with current market needs.</p>
+<hr>
+<h2 id="%F0%9F%9B%A0%EF%B8%8F-tools-i-used">🛠️ Tools I Used</h2>
+<ul>
+<li><strong>Excel</strong> – Simple visualization and Data Cleaning</li>
+<li><strong>PostgreSQL</strong> – SQL querying and aggregation</li>
+<li><strong>SQL (PostgreSQL dialect)</strong> – CTEs, joins, filters, math functions</li>
+<li><strong>Git &amp; GitHub</strong> – Version control and collaboration</li>
+<li><strong>VS Code</strong> – Code writing and editing</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%93%8A-analysis">📊 Analysis</h2>
+<h3 id="1-highest-paying-data-analyst-roles">1. Highest-Paying Data Analyst Roles</h3>
+<p><strong>Problem Statement:</strong><br>
+Identify the highest-paying Data Analyst job postings to help job seekers target high-value opportunities.</p>
+<p><strong>Description:</strong><br>
+This query filters out job postings without salary information, converts hourly wages to annual if necessary, and returns the top 10 roles offering the highest pay.</p>
+<p><strong>Approach:</strong></p>
+<ul>
+<li>Filter for valid <code>salary_year_avg</code> or <code>salary_hour_avg</code>.</li>
+<li>Convert hourly salaries to annual equivalents using <strong>2040</strong> hours/year.</li>
+<li>Filter job title as &quot;Data Analyst&quot;.</li>
+<li>Join with the <code>company_dim</code> table for company names.</li>
+<li>Order by salary in descending order.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span>
+    job_id,
+    job_title,
+    <span class="hljs-keyword">COALESCE</span>(salary_year_avg, salary_hour_avg*<span class="hljs-number">2040</span>) <span class="hljs-keyword">AS</span> salary,
+    <span class="hljs-keyword">name</span> <span class="hljs-keyword">AS</span> company_name,
+    job_location,
+    job_schedule_type
+<span class="hljs-keyword">FROM</span>
+    job_postings_fact
+<span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span>
+    company_dim <span class="hljs-keyword">ON</span> job_postings_fact.company_id = company_dim.company_id
+<span class="hljs-keyword">WHERE</span>
+    (salary_year_avg <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">OR</span> salary_hour_avg <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>)
+    <span class="hljs-keyword">AND</span> job_title_short = <span class="hljs-string">'Data Analyst'</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+    salary <span class="hljs-keyword">DESC</span>
+<span class="hljs-keyword">LIMIT</span> <span class="hljs-number">10</span>;
+</div></code></pre>
+<h3 id="2-most-in-demand-skills-for-high-paying-data-analyst-roles">2. Most In-Demand Skills for High-Paying Data Analyst Roles</h3>
+<p><strong>Problem Statement:</strong><br>
+Identify the most common skills associated with the highest-paying Data Analyst job postings.</p>
+<p><strong>Description:</strong><br>
+This analysis focuses on uncovering the skills most frequently associated with top-paying Data Analyst roles. By selecting the 100 highest-paying job postings for Data Analysts (based on annualized salary), we analyze the skills linked to these positions. The result reveals the 10 most common skills among these high-salary jobs — offering insights into the competencies that tend to appear in well-compensated Data Analyst roles.</p>
+<p><strong>Approach:</strong></p>
+<ul>
+<li>Filtered the job postings dataset to include only Data Analyst roles.</li>
+<li>Calculated a unified salary field by converting hourly wages to annual salaries where needed.</li>
+<li>Selected the top 100 jobs with the highest salaries.</li>
+<li>Joined these jobs with the skills dataset to retrieve associated skills.</li>
+<li>Grouped and counted the number of job postings each skill appeared in.</li>
+<li>Ordered the skills by frequency and selected the top 10 most common skills.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">WITH</span> job_skills <span class="hljs-keyword">AS</span>(
+    <span class="hljs-keyword">SELECT</span>
+        job_id,
+        job_title,
+        <span class="hljs-keyword">COALESCE</span>(salary_year_avg, salary_hour_avg*<span class="hljs-number">2040</span>) <span class="hljs-keyword">AS</span> salary
+    <span class="hljs-keyword">FROM</span>
+        job_postings_fact
+    <span class="hljs-keyword">WHERE</span>
+        (salary_year_avg <span class="hljs-keyword">is</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">OR</span> salary_hour_avg <span class="hljs-keyword">is</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>)
+        <span class="hljs-keyword">AND</span> job_title_short = <span class="hljs-string">'Data Analyst'</span>
+    <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+        salary <span class="hljs-keyword">DESC</span>
+    <span class="hljs-keyword">LIMIT</span>
+        <span class="hljs-number">100</span>
+)
+
+<span class="hljs-keyword">SELECT</span>
+    skills_dim.skills,
+    <span class="hljs-keyword">count</span>(*) <span class="hljs-keyword">as</span> <span class="hljs-string">"job count"</span>
+<span class="hljs-keyword">FROM</span>
+    job_skills
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span>
+    skills_job_dim <span class="hljs-keyword">on</span> skills_job_dim.job_id = job_skills.job_id
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span>
+    skills_dim <span class="hljs-keyword">on</span> skills_job_dim.skill_id = skills_dim.skill_id
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
+    skills_dim.skills
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+    <span class="hljs-string">"job count"</span> <span class="hljs-keyword">DESC</span>
+<span class="hljs-keyword">LIMIT</span>
+    <span class="hljs-number">10</span>;
+</div></code></pre>
+<p><img src="Picture_assets/q2.jpg" alt="Most In-Demand Skills for High-Paying Data Analyst Roles">
+<em>This chart highlights the skills most frequently associated with the top 100 highest-paying Data Analyst roles, offering insight into the technical competencies valued in premium positions.</em></p>
+<h3 id="3-most-frequently-required-skills-for-data-analyst-roles">3. Most Frequently Required Skills for Data Analyst Roles</h3>
+<p><strong>Problem Statement:</strong><br>
+Identify the top most frequently required skills for Data Analyst job roles.</p>
+<p><strong>Description:</strong><br>
+In today's competitive job market, knowing the most sought-after skills can significantly improve job-seeking strategies and curriculum development. This query aims to uncover the top 5 most in-demand skills specifically for Data Analyst roles, based on job postings.</p>
+<p>The result helps job seekers, hiring managers, and educators understand which skills are most valued in the industry for Data Analyst positions.</p>
+<p><strong>Approach:</strong></p>
+<ul>
+<li>Filter job postings to include only those with the title Data Analyst.</li>
+<li>Join the job postings with the associated skills using <code>skills_job_dim</code>.</li>
+<li>Count how many job postings mention each skill.</li>
+<li>Order the results by the number of mentions in descending order.</li>
+<li>Limit the output to the top 5 most commonly required skills.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span>
+    skills,
+    <span class="hljs-keyword">count</span>(skills_job_dim.job_id) <span class="hljs-keyword">as</span> <span class="hljs-string">"jobs in demand"</span>
+<span class="hljs-keyword">FROM</span>
+    skills_job_dim
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span>
+    job_postings_fact <span class="hljs-keyword">ON</span> job_postings_fact.job_id = skills_job_dim.job_id
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span>
+    skills_dim <span class="hljs-keyword">ON</span> skills_dim.skill_id = skills_job_dim.skill_id
+<span class="hljs-keyword">WHERE</span>
+    job_postings_fact.job_title_short = <span class="hljs-string">'Data Analyst'</span>
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
+    skills
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+    <span class="hljs-string">"jobs in demand"</span> <span class="hljs-keyword">DESC</span>
+<span class="hljs-keyword">LIMIT</span> <span class="hljs-number">5</span>;
+</div></code></pre>
+<p><img src="Picture_assets/q3.jpg" alt="Identify the top most frequently required skills for Data Analyst job roles.">
+<em>This chart shows the number of job postings that mention each skill among the top 100 highest-paying Data Analyst roles, highlighting the most in-demand competencies in premium positions.</em></p>
+<h3 id="4-highest-paying-skills-across-job-postings">4. Highest-Paying Skills Across Job Postings</h3>
+<p><strong>Problem Statement:</strong><br>
+Identify the highest-paying skills across all job postings with valid salary data.</p>
+<p><strong>Description:</strong><br>
+By ranking skills according to the average normalized salary of the jobs requiring them, this query pinpoints which competencies command the highest pay in the market. Job seekers can prioritize developing these skills for maximum earning potential, and educators can tailor curricula to high-value areas.</p>
+<p><strong>Approach:</strong></p>
+<ul>
+<li>Filter job postings to include only those with a valid annual or hourly salary.</li>
+<li>Normalize salaries by converting hourly wages to annual equivalents (assuming 2,040 work hours per year).</li>
+<li>Pre-order the normalized jobs by salary in descending order to optimize for top salaries.</li>
+<li>Join the filtered job list with <code>skills_job_dim</code> and <code>skills_dim</code> to associate each job with its skills.</li>
+<li>For each skill, compute the average salary of its associated jobs.</li>
+<li>Order skills by average salary in descending order.</li>
+<li>Return the top 25 skills with the highest average salary.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">WITH</span> job_fact_new <span class="hljs-keyword">AS</span>(
+    <span class="hljs-keyword">SELECT</span>
+        job_id,
+        job_title,
+        <span class="hljs-keyword">COALESCE</span>(salary_year_avg, salary_hour_avg*<span class="hljs-number">2040</span>) <span class="hljs-keyword">AS</span> salary
+    <span class="hljs-keyword">FROM</span>
+        job_postings_fact
+    <span class="hljs-keyword">WHERE</span>
+        (salary_year_avg <span class="hljs-keyword">is</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">OR</span> salary_hour_avg <span class="hljs-keyword">is</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>)
+        <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+        salary <span class="hljs-keyword">DESC</span>
+)
+
+<span class="hljs-keyword">SELECT</span>
+    skills,
+    <span class="hljs-keyword">round</span>(<span class="hljs-keyword">avg</span>(salary)::<span class="hljs-built_in">numeric</span>,<span class="hljs-number">0</span>) <span class="hljs-keyword">as</span> <span class="hljs-string">"average salary"</span>
+<span class="hljs-keyword">FROM</span>
+    job_fact_new
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span>
+    skills_job_dim <span class="hljs-keyword">on</span> skills_job_dim.job_id = job_fact_new.job_id
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span>
+    skills_dim <span class="hljs-keyword">on</span> skills_job_dim.skill_id = skills_dim.skill_id
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
+    skills
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+    <span class="hljs-string">"average salary"</span> <span class="hljs-keyword">DESC</span>
+<span class="hljs-keyword">LIMIT</span>
+    <span class="hljs-number">25</span>;
+</div></code></pre>
+<h3 id="5-optimal-in-demand-skills-based-on-demand-and-salary">5. Optimal In-Demand Skills Based on Demand and Salary</h3>
+<p><strong>Problem Statement:</strong><br>
+Determine the optimal in-demand skills by analyzing their job market demand alongside the associated average salaries to guide career and hiring decisions.</p>
+<p><strong>Description:</strong><br>
+In the evolving job landscape, job seekers and educators benefit from knowing not just which skills are frequently required but also which offer strong earning potential. This analysis ranks skills by optimizing both their demand (number of job postings) and their average salary, giving a holistic view of valuable skills in the job market.</p>
+<p><strong>Approach:</strong></p>
+<ul>
+<li>Filter job postings to include only those with a valid annual or hourly salary.</li>
+<li>Normalize salaries by converting hourly wages to annual equivalents.</li>
+<li>Join job postings with associated skills via <code>skills_job_dim</code> and <code>skills_dim</code>.</li>
+<li>For each skill, calculate:
+<ul>
+<li>The number of job postings requiring that skill.</li>
+<li>The average salary for jobs that require that skill.</li>
+</ul>
+</li>
+<li>Sort the skills based on a combined score using:
+<ul>
+<li><strong>average salary × log(number of jobs)</strong>
+This scoring formula balances salary potential with market demand, ensuring that highly ranked skills are not just well-paid but also widely required. The logarithmic factor dampens the effect of extremely high job counts, allowing skills with fewer but better-paying jobs to remain competitive in the ranking.</li>
+</ul>
+</li>
+<li>Return the top 10 skills based on this sorting.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">WITH</span> job_fact_new <span class="hljs-keyword">AS</span> (
+    <span class="hljs-keyword">SELECT</span>
+        job_id,
+        job_title,
+        <span class="hljs-keyword">COALESCE</span>(salary_year_avg, salary_hour_avg * <span class="hljs-number">2040</span>) <span class="hljs-keyword">AS</span> salary,
+        job_location,
+        job_schedule_type
+    <span class="hljs-keyword">FROM</span>
+        job_postings_fact
+    <span class="hljs-keyword">WHERE</span>
+        (salary_year_avg <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">OR</span> salary_hour_avg <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>)
+        <span class="hljs-keyword">and</span> job_title_short = <span class="hljs-string">'Data Analyst'</span>
+),
+average_count <span class="hljs-keyword">AS</span> (
+    <span class="hljs-keyword">SELECT</span>
+        skills,
+        <span class="hljs-keyword">COUNT</span>(skills_job_dim.job_id) <span class="hljs-keyword">AS</span> <span class="hljs-string">"jobs in demand"</span>,
+        <span class="hljs-keyword">ROUND</span>(<span class="hljs-keyword">AVG</span>(salary), <span class="hljs-number">0</span>) <span class="hljs-keyword">AS</span> <span class="hljs-string">"average salary"</span>
+    <span class="hljs-keyword">FROM</span>
+        skills_job_dim
+    <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span>
+        job_fact_new <span class="hljs-keyword">ON</span> job_fact_new.job_id = skills_job_dim.job_id
+    <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span>
+        skills_dim <span class="hljs-keyword">ON</span> skills_dim.skill_id = skills_job_dim.skill_id
+    <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
+        skills
+)
+<span class="hljs-keyword">SELECT</span>
+    skills,
+    <span class="hljs-string">"jobs in demand"</span>,
+    <span class="hljs-string">"average salary"</span>
+<span class="hljs-keyword">FROM</span>
+    average_count
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+    <span class="hljs-keyword">ROUND</span>(<span class="hljs-string">"average salary"</span> * <span class="hljs-keyword">LOG</span>(<span class="hljs-string">"jobs in demand"</span>)::<span class="hljs-built_in">numeric</span>, <span class="hljs-number">0</span>) <span class="hljs-keyword">DESC</span>
+<span class="hljs-keyword">LIMIT</span>
+    <span class="hljs-number">10</span>;
+</div></code></pre>
+<p><img src="Picture_assets/q5.jpg" alt="Optimal In-Demand Skills Based on Demand and Salary">
+<em>This chart presents a dual view of the job market demand (number of job postings) and earning potential (average salary) for key Data Analyst skills. By applying a combined score of <strong>average salary × log(job demand)</strong>, it highlights the most strategically valuable skills for both job seekers and hiring managers.</em></p>
+<hr>
+<h2 id="%F0%9F%93%98-what-i-learned">📘 What I Learned ?</h2>
+<p>Through this project, I gained practical experience in the following areas:</p>
+<ul>
+<li>
+<p><strong>SQL Mastery:</strong>
+Improved my ability to write advanced SQL queries involving CTEs, joins, aggregations, filters, and mathematical functions for data analysis.</p>
+</li>
+<li>
+<p><strong>Data Cleaning &amp; Transformation:</strong>
+Learned to handle missing salary data and standardize hourly and annual salaries for fair comparison across roles.</p>
+</li>
+<li>
+<p><strong>Analytical Thinking:</strong>
+Developed a strong understanding of how to extract actionable insights from raw datasets by asking the right questions and applying relevant metrics.</p>
+</li>
+<li>
+<p><strong>Insight Prioritization:</strong>
+Discovered that combining salary data with skill demand (using a logarithmic weighting function) provides a more balanced and practical view of job market value than looking at either metric alone.</p>
+</li>
+<li>
+<p><strong>Data Storytelling:</strong>
+Improved my ability to present findings through clear visualizations and structured explanations to communicate technical insights to a broader audience.</p>
+</li>
+</ul>
+<hr>
+<h2 id="%E2%9C%85-conclusion">✅ Conclusion</h2>
+<p>This analysis provides a data-driven roadmap for aspiring and current Data Analysts to strategically upskill based on market realities. Here are the key takeaways:</p>
+<ul>
+<li>
+<p>SQL, Python, and Excel remain fundamental and frequently demanded in top-paying roles.</p>
+</li>
+<li>
+<p>Power BI and Tableau are common in roles with both high salary and high demand, making them practical tools to master.</p>
+</li>
+<li>
+<p>Skills like AWS and Snowflake, though lower in job frequency, command higher average salaries—suggesting niche but high-value specialization paths.</p>
+</li>
+<li>
+<p>By applying a combined metric of salary and demand, we identified the most strategically optimal skills to focus on — balancing high earning potential with broad job availability.</p>
+</li>
+</ul>
+<p>In an ever-evolving job market, these insights can guide personal development, hiring strategies, and educational content creation to better align with current industry needs.</p>
+
+</body>
+</html>
